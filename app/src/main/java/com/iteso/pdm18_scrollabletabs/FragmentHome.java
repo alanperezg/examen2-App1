@@ -1,4 +1,4 @@
-/*package com.iteso.pdm18_scrollabletabs;
+package com.iteso.pdm18_scrollabletabs;
 
 
 import android.content.Intent;
@@ -7,16 +7,16 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.iteso.pdm18_scrollabletabs.Controllers.ItemProductControl;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
+import com.iteso.pdm18_scrollabletabs.tools.DataBaseHandler;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 public class FragmentHome extends Fragment {
 
 
@@ -40,34 +40,22 @@ public class FragmentHome extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
         recyclerView.setHasFixedSize(true);
         // Use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-
-        products = new ArrayList<>();
-
-
+        DataBaseHandler dh = DataBaseHandler.getInstance(getContext());
+        products = ItemProductControl.getItemProductsByCategoryId(2, dh);
         adapterProduct = new AdapterProduct(Constant.FRAGMENT_HOME, getActivity(), products);
         recyclerView.setAdapter(adapterProduct);
     }
+
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        ItemProduct itemProduct = data.getParcelableExtra(Constant.EXTRA_PRODUCT);
-        Iterator<ItemProduct> iterator = products.iterator();
-        int position = 0;
-        while(iterator.hasNext()){
-            ItemProduct item = iterator.next();
-            if(item.getCode() == itemProduct.getCode()){
-                products.set(position, itemProduct);
-                break;
-            }
-            position++;
-        }
-        adapterProduct.notifyDataSetChanged();
+    public void onStart() {
+        super.onStart();
+        DataBaseHandler dh = DataBaseHandler.getInstance(getContext());
+        products = ItemProductControl.getItemProductsByCategoryId(2, dh);
+        adapterProduct = new AdapterProduct(Constant.FRAGMENT_HOME, getActivity(), products);
+        recyclerView.setAdapter(adapterProduct);
     }
 }
-*/

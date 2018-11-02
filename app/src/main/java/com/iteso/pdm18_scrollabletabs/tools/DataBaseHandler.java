@@ -110,50 +110,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         String INSERT_CITY_PVR = "INSERT INTO "+TABLE_CITY+" ("+KEY_CITY_NAME+")"
                 +" VALUES ('Puerto Vallarta')";
         db.execSQL(INSERT_CITY_PVR);
-
-        String INSERT_STORE = "INSERT INTO "+TABLE_STORE+" ("+KEY_STORE_NAME+", "
-                +KEY_STORE_PHONE+", "
-                +KEY_STORE_CITYID+", "
-                +KEY_STORE_THUMBNAIL+", "
-                +KEY_STORE_LATITUDE+", "
-                +KEY_STORE_LONGITUDE+") VALUES('Tienda 1', '3222317467', 1, 0, 1.0, 1.0)";
-        db.execSQL(INSERT_STORE);
-
-        String INSERT_PRODUCT1 = "INSERT INTO "+TABLE_PRODUCT+" ("+KEY_PRODUCT_NAME+", "
-                +KEY_PRODUCT_DESCRIPTION+", "
-                +KEY_PRODUCT_IMAGE+", "
-                +KEY_PRODUCT_CATEGORYID
-                +") VALUES ('Producto 1', 'Producto 1', 1, 1)";
-        db.execSQL(INSERT_PRODUCT1);
-
-        String INSERT_PRODUCT2 = "INSERT INTO "+TABLE_PRODUCT+" ("+KEY_PRODUCT_NAME+", "
-                +KEY_PRODUCT_DESCRIPTION+", "
-                +KEY_PRODUCT_IMAGE+", "
-                +KEY_PRODUCT_CATEGORYID
-                +") VALUES ('Producto 2', 'Producto 2', 1, 1)";
-        db.execSQL(INSERT_PRODUCT2);
-
-        String INSERT_PRODUCT3 = "INSERT INTO "+TABLE_PRODUCT+" ("+KEY_PRODUCT_NAME+", "
-                +KEY_PRODUCT_DESCRIPTION+", "
-                +KEY_PRODUCT_IMAGE+", "
-                +KEY_PRODUCT_CATEGORYID
-                +") VALUES ('Producto 3', 'Producto 3', 1, 2)";
-        db.execSQL(INSERT_PRODUCT3);
-
-        String INSERT_STORE_PRODUCT1 = "INSERT INTO "+TABLE_STORE_PRODUCT+" ("+KEY_STORE_PRODUCT_PRODUCTID+", "
-                +KEY_STORE_PRODUCT_STOREID
-                +") VALUES(1,1)";
-        db.execSQL(INSERT_STORE_PRODUCT1);
-
-        String INSERT_STORE_PRODUCT2 = "INSERT INTO "+TABLE_STORE_PRODUCT+" ("+KEY_STORE_PRODUCT_PRODUCTID+", "
-                +KEY_STORE_PRODUCT_STOREID
-                +") VALUES(2,1)";
-        db.execSQL(INSERT_STORE_PRODUCT2);
-
-        String INSERT_STORE_PRODUCT3 = "INSERT INTO "+TABLE_STORE_PRODUCT+" ("+KEY_STORE_PRODUCT_PRODUCTID+", "
-                +KEY_STORE_PRODUCT_STOREID
-                +") VALUES(3,1)";
-        db.execSQL(INSERT_STORE_PRODUCT3);
     }
 
     @Override

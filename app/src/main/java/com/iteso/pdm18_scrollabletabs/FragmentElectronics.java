@@ -1,4 +1,4 @@
-/*package com.iteso.pdm18_scrollabletabs;
+package com.iteso.pdm18_scrollabletabs;
 
 
 import android.content.Intent;
@@ -11,11 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.iteso.pdm18_scrollabletabs.Controllers.ItemProductControl;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
+import com.iteso.pdm18_scrollabletabs.tools.DataBaseHandler;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 public class FragmentElectronics extends Fragment {
 
 
@@ -30,7 +31,6 @@ public class FragmentElectronics extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_technology, container, false);
         recyclerView = rootView.findViewById(R.id.fragment_recycler);
         return rootView;
@@ -40,32 +40,21 @@ public class FragmentElectronics extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
         recyclerView.setHasFixedSize(true);
-        // Use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-        products = new ArrayList<>();
-
+        DataBaseHandler dh = DataBaseHandler.getInstance(getContext());
+        products = ItemProductControl.getItemProductsByCategoryId(3, dh);
         adapterProduct = new AdapterProduct(Constant.FRAGMENT_ELECTRONICS, getActivity(), products);
         recyclerView.setAdapter(adapterProduct);
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("jeje");
-        ItemProduct itemProduct = data.getParcelableExtra(Constant.EXTRA_PRODUCT);
-        Iterator<ItemProduct> iterator = products.iterator();
-        int position = 0;
-        while(iterator.hasNext()){
-            ItemProduct item = iterator.next();
-            if(item.getCode() == itemProduct.getCode()){
-                products.set(position, itemProduct);
-                break;
-            }
-            position++;
-        }
-        adapterProduct.notifyDataSetChanged();
-    }
 
-}*/
+    @Override
+    public void onStart() {
+        super.onStart();
+        DataBaseHandler dh = DataBaseHandler.getInstance(getContext());
+        products = ItemProductControl.getItemProductsByCategoryId(3, dh);
+        adapterProduct = new AdapterProduct(Constant.FRAGMENT_ELECTRONICS, getActivity(), products);
+        recyclerView.setAdapter(adapterProduct);
+    }
+}

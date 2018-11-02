@@ -1,4 +1,4 @@
-/*package com.iteso.pdm18_scrollabletabs;
+package com.iteso.pdm18_scrollabletabs;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
@@ -36,7 +35,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         TextView mStore;
         TextView mLocation;
         TextView mPhone;
-        RelativeLayout mDetail;
+
         ImageView mImage;
 
         ViewHolder(View v){
@@ -46,7 +45,6 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             mLocation = v.findViewById(R.id.item_product_location);
             mPhone = v.findViewById(R.id.item_product_phone);
             mImage = v.findViewById(R.id.item_product_image);
-            mDetail = v.findViewById(R.id.item_product_layout);
         }
     }
     @Override
@@ -58,7 +56,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mTitle.setText(products.get(holder.getAdapterPosition()).getTitle());
+        holder.mTitle.setText(products.get(holder.getAdapterPosition()).getName());
         holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName());
         holder.mLocation.setText(products.get(holder.getAdapterPosition()).getStore().getCity().getName());
         holder.mPhone.setText(products.get(holder.getAdapterPosition()).getStore().getPhone());
@@ -79,20 +77,6 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         }
         Bitmap bitmap = ((BitmapDrawable)holder.mImage.getDrawable()).getBitmap();
         holder.mImage.setImageBitmap(bitmap);
-
-        holder.mDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(context, products.get(holder.getAdapterPosition()).toString(),
-                //        Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(context, ActivityProduct.class);
-                intent.putExtra(Constant.EXTRA_PRODUCT, products.get(holder.getAdapterPosition()));
-                intent.putExtra(Constant.EXTRA_FRAGMENT, fragment);
-                ((ActivityMain) context).startActivityForResult(intent, Constant.ACTIVITY_DETAIL);
-            }
-        });
-
         holder.mPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,4 +96,3 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         return products.size();
     }
 }
-*/

@@ -1,5 +1,4 @@
 package com.iteso.pdm18_scrollabletabs;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -21,10 +20,10 @@ public class ActivityLogin extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*savePreferences();
+                savePreferences();
                 Intent intent = new Intent(ActivityLogin.this, ActivityMain.class);
                 startActivity(intent);
-                finish();*/
+                finish();
             }
         });
     }

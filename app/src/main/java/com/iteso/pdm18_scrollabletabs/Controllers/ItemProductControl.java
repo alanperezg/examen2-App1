@@ -24,9 +24,10 @@ public class ItemProductControl {
         cv.put(DataBaseHandler.KEY_PRODUCT_CATEGORYID, product.getCategory().getId());
         insertId=db.insert(DataBaseHandler.TABLE_PRODUCT, null, cv);
         if(insertId>0){
-            cv.put(DataBaseHandler.KEY_STORE_PRODUCT_PRODUCTID, insertId);
-            cv.put(DataBaseHandler.KEY_STORE_PRODUCT_STOREID, product.getStore().getId());
-            db.insert(DataBaseHandler.TABLE_STORE_PRODUCT, null, cv);
+            ContentValues cv1 = new ContentValues();
+            cv1.put(DataBaseHandler.KEY_STORE_PRODUCT_PRODUCTID, insertId);
+            cv1.put(DataBaseHandler.KEY_STORE_PRODUCT_STOREID, product.getStore().getId());
+            long h= db.insert(DataBaseHandler.TABLE_STORE_PRODUCT, null, cv1);
         }
         try{
             db.close();
@@ -62,11 +63,8 @@ public class ItemProductControl {
                 +"WHERE c."+DataBaseHandler.KEY_CATEGORY_ID+" = "+categoryId;
         SQLiteDatabase db = dh.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        Log.e("URI_APP", "In getItemProductByCategory");
         Boolean cursorStatus = cursor.moveToFirst();
-        Log.e("URI_APP", cursorStatus.toString());
         while(cursorStatus){
-            Log.e("URI_APP", "Something in the DB");
             ItemProduct itemProduct = new ItemProduct();
             itemProduct.setId(cursor.getInt(0));
             itemProduct.setName(cursor.getString(1));

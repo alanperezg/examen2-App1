@@ -5,11 +5,11 @@
     <item
         android:id="@+id/menu_privacy_policy"
         android:orderInCategory="100"
-        android:title="Privacy Policy"
+        android:title="@string/menu_privacy_policy"
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_logout"
         android:orderInCategory="100"
-        android:title="Logout"
+        android:title="@string/menu_logout"
         app:showAsAction="never"/>
 </menu>
