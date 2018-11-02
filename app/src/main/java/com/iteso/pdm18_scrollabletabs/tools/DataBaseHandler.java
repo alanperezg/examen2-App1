@@ -116,7 +116,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 +KEY_STORE_CITYID+", "
                 +KEY_STORE_THUMBNAIL+", "
                 +KEY_STORE_LATITUDE+", "
-                +KEY_STORE_LONGITUDE+") VALUES('Tienda 1', '3222317467', 0, 0, 1.0, 1.0)";
+                +KEY_STORE_LONGITUDE+") VALUES('Tienda 1', '3222317467', 1, 0, 1.0, 1.0)";
         db.execSQL(INSERT_STORE);
 
         String INSERT_PRODUCT1 = "INSERT INTO "+TABLE_PRODUCT+" ("+KEY_PRODUCT_NAME+", "

@@ -49,7 +49,7 @@ public class DataProvider extends ContentProvider {
                cursor = new MatrixCursor(cursorColumns);
                ArrayList<ItemProduct> products = ItemProductControl.getItemProductsByCategoryId(
                        categoryId, DataBaseHandler.getInstance(getContext()));
-               Log.e("Product ID", products.size()+"");
+               Log.e("URI_APP", products.size()+"");
                for(ItemProduct product:products) {
                 ((MatrixCursor) cursor).newRow().add("id", product.getId())
                         .add("name", product.getName())

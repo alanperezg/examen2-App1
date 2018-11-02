@@ -3,6 +3,7 @@ package com.iteso.pdm18_scrollabletabs.Controllers;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.iteso.pdm18_scrollabletabs.beans.Category;
 import com.iteso.pdm18_scrollabletabs.beans.City;
@@ -61,8 +62,11 @@ public class ItemProductControl {
                 +"WHERE c."+DataBaseHandler.KEY_CATEGORY_ID+" = "+categoryId;
         SQLiteDatabase db = dh.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
+        Log.e("URI_APP", "In getItemProductByCategory");
         Boolean cursorStatus = cursor.moveToFirst();
+        Log.e("URI_APP", cursorStatus.toString());
         while(cursorStatus){
+            Log.e("URI_APP", "Something in the DB");
             ItemProduct itemProduct = new ItemProduct();
             itemProduct.setId(cursor.getInt(0));
             itemProduct.setName(cursor.getString(1));
