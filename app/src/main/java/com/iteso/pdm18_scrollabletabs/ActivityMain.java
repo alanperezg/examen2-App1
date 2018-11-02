@@ -1,4 +1,4 @@
-package com.iteso.pdm18_scrollabletabs;
+/*package com.iteso.pdm18_scrollabletabs;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,16 +11,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
-/**
- * @author Oscar Vargas
- * @since 02/03/18
- */
 public class ActivityMain extends AppCompatActivity {
 
     private static final int TOTAL_PAGES = 3;
@@ -79,10 +74,6 @@ public class ActivityMain extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         SectionsPagerAdapter(FragmentManager fm) {
@@ -157,7 +148,7 @@ public class ActivityMain extends AppCompatActivity {
 }
 
 
-
+*/
 
 
 

@@ -1,4 +1,4 @@
-package com.iteso.pdm18_scrollabletabs;
+/*package com.iteso.pdm18_scrollabletabs;
 
 
 import android.content.Intent;
@@ -16,11 +16,6 @@ import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentTechnology extends Fragment {
 
     RecyclerView recyclerView;
@@ -52,9 +47,7 @@ public class FragmentTechnology extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         products = new ArrayList<>();
-        products.add(new ItemProduct(1, "Mac", "BestBuy", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_MAC));
-        products.add(new ItemProduct(2, "Alienware", "DELL", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_ALIENWARE));
-        products.add(new ItemProduct(3, "Lanix", "Saint Jhonny", "Zapopan", "3312345678", "Lorem Ipsum ....", Constant.TYPE_ALIENWARE));
+
         adapterProduct = new AdapterProduct(Constant.FRAGMENT_TECHNOLOGY, getActivity(), products);
         recyclerView.setAdapter(adapterProduct);
     }
@@ -75,4 +68,4 @@ public class FragmentTechnology extends Fragment {
         }
         adapterProduct.notifyDataSetChanged();
     }
-}
+}*/

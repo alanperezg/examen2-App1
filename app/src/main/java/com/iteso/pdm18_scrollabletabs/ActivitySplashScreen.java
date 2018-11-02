@@ -22,13 +22,13 @@ public class ActivitySplashScreen extends AppCompatActivity {
             public void run() {
                 User user = loadPreferences();
                 if(user.isLogged()){
-                    Intent intent = new Intent(ActivitySplashScreen.this, ActivityMain.class);
+                    /*Intent intent = new Intent(ActivitySplashScreen.this, ActivityMain.class);
                     startActivity(intent);
-                    finish();
+                    finish();*/
                 }else{
-                    Intent intent = new Intent(ActivitySplashScreen.this, ActivityLogin.class);
+                    /*Intent intent = new Intent(ActivitySplashScreen.this, ActivityLogin.class);
                     startActivity(intent);
-                    finish();
+                    finish();*/
                 }
             }
         };

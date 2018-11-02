@@ -21,10 +21,10 @@ public class ActivityLogin extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                savePreferences();
+                /*savePreferences();
                 Intent intent = new Intent(ActivityLogin.this, ActivityMain.class);
                 startActivity(intent);
-                finish();
+                finish();*/
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.iteso.pdm18_scrollabletabs;
+/*package com.iteso.pdm18_scrollabletabs;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,24 +6,18 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 import com.iteso.pdm18_scrollabletabs.tools.Constant;
 
 import java.util.ArrayList;
 
-/**
- * @author Oscar Vargas
- * @since 26/02/18.
- */
 
 public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHolder>{
 
@@ -65,9 +59,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mTitle.setText(products.get(holder.getAdapterPosition()).getTitle());
-        holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore());
-        holder.mLocation.setText(products.get(holder.getAdapterPosition()).getLocation());
-        holder.mPhone.setText(products.get(holder.getAdapterPosition()).getPhone());
+        holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName());
+        holder.mLocation.setText(products.get(holder.getAdapterPosition()).getStore().getCity().getName());
+        holder.mPhone.setText(products.get(holder.getAdapterPosition()).getStore().getPhone());
 
         switch(products.get(holder.getAdapterPosition()).getImage()){
             case Constant.TYPE_MAC:
@@ -103,7 +97,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL,
-                        Uri.parse("tel:" + products.get(holder.getAdapterPosition()).getPhone()));
+                        Uri.parse("tel:" + products.get(holder.getAdapterPosition()).getStore().getPhone()));
                 context.startActivity(intent);
 
             }
@@ -118,3 +112,4 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         return products.size();
     }
 }
+*/
