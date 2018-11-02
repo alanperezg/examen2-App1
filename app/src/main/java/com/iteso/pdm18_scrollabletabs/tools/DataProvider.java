@@ -38,6 +38,7 @@ public class DataProvider extends ContentProvider {
         Log.e("URI_APP", uri.toString());
         switch (uriMatcher.match(uri)){
            case PRODUCTS_BY_CATEGORY:
+               Log.e("URI_APP", uri.toString());
                int categoryId;
                try {
                    categoryId = Integer.parseInt(uri.getLastPathSegment());
@@ -48,6 +49,7 @@ public class DataProvider extends ContentProvider {
                cursor = new MatrixCursor(cursorColumns);
                ArrayList<ItemProduct> products = ItemProductControl.getItemProductsByCategoryId(
                        categoryId, DataBaseHandler.getInstance(getContext()));
+               Log.e("Product ID", products.size()+"");
                for(ItemProduct product:products) {
                 ((MatrixCursor) cursor).newRow().add("id", product.getId())
                         .add("name", product.getName())
@@ -55,7 +57,9 @@ public class DataProvider extends ContentProvider {
                         .add("tienda", product.getStore().getName())
                         .add("ciudad", product.getStore().getCity().getName())
                         .add("telefono", product.getStore().getPhone());
+                Log.e("Product ID", product.getName());
                }
+
        }
        return cursor;
     }
