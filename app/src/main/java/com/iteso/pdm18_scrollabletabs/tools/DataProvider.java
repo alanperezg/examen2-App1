@@ -8,6 +8,7 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.iteso.pdm18_scrollabletabs.Controllers.ItemProductControl;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
@@ -34,6 +35,7 @@ public class DataProvider extends ContentProvider {
     @Override
     public Cursor query( Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         Cursor cursor = null;
+        Log.e("URI_APP", uri.toString());
         switch (uriMatcher.match(uri)){
            case PRODUCTS_BY_CATEGORY:
                int categoryId;

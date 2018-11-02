@@ -69,7 +69,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 +KEY_STORE_PHONE+" TEXT,"
                 +KEY_STORE_CITYID+" INTEGER,"
                 +KEY_STORE_THUMBNAIL+" INTEGER,"
-                +KEY_STORE_LATITUDE+ "REAL,"
+                +KEY_STORE_LATITUDE+ " REAL,"
                 +KEY_STORE_LONGITUDE+" REAL,"
                 +"FOREIGN KEY ("+KEY_STORE_CITYID+") REFERENCES "+TABLE_CITY+"("+KEY_CITY_ID+"))";
         db.execSQL(CREATE_STORE_TABLE);

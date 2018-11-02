@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.iteso.pdm18_scrollabletabs.beans.User;
+import com.iteso.pdm18_scrollabletabs.tools.DataBaseHandler;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -34,6 +35,9 @@ public class ActivitySplashScreen extends AppCompatActivity {
         };
         Timer timer = new Timer();
         timer.schedule(timert, 2000);
+
+        DataBaseHandler.getInstance(this);
+
     }
     public User loadPreferences(){
         SharedPreferences sp = getSharedPreferences(MY_PREFERENCES, MODE_PRIVATE);
